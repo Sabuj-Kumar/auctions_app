@@ -9,8 +9,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../neccesary_component/custom_input_field.dart';
 import '../../utils/colors.dart';
 
-import '../home_screen/home_page.dart';
-import 'sign_in_page.dart';
+import '../home_screen/home_screen.dart';
+import 'sign_in_screen.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -36,7 +36,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
           showError = false;
         });
         if(mounted){
-          Navigator.push(context,MaterialPageRoute(builder: (context)=>const HomePage()));
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>const HomeScreen()));
         }
       }
     }on FirebaseAuthException catch(error){
@@ -58,6 +58,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         backgroundColor: Colors.cyan,
         title: const Text("Auction Products",style: TextStyle(color: Colors.white),),
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       body: GestureDetector(
         onTap: (){

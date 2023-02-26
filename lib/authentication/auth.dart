@@ -1,6 +1,8 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../local_storage/local_storage.dart';
+
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
@@ -9,11 +11,13 @@ class Auth {
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
   Future<void> signInWithEmailAndPass({required String email, required String pass})async{
-    await _firebaseAuth.signInWithEmailAndPassword(email: email, password: pass);
+    final data = await _firebaseAuth.signInWithEmailAndPassword(email: email, password: pass);
+    await LocalStorage.setToken("${data.user?.uid}");
   }
 
   Future<void> createUser({required String email, required String pass})async{
-    await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: pass);
+    final data = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: pass);
+    await LocalStorage.setToken("${data.user?.uid}");
   }
 
   Future<void> signOut()async{

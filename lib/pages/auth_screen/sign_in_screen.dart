@@ -3,14 +3,14 @@ import 'package:ebay_ecommerce/authentication/auth.dart';
 import 'package:ebay_ecommerce/neccesary_component/custom_button.dart';
 import 'package:ebay_ecommerce/neccesary_component/custom_text.dart';
 import 'package:ebay_ecommerce/neccesary_component/screen_size.dart';
-import 'package:ebay_ecommerce/pages/auth_screen/signUpScreen.dart';
+import 'package:ebay_ecommerce/pages/auth_screen/sign_up_screen.dart';
 import 'package:ebay_ecommerce/utils/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../neccesary_component/custom_input_field.dart';
-import '../home_screen/home_page.dart';
+import '../home_screen/home_screen.dart';
 
 class SignInScreen extends ConsumerStatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -35,7 +35,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
           showError = false;
         });
         if(mounted){
-          Navigator.push(context,MaterialPageRoute(builder: (context)=>const HomePage()));
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>const HomeScreen()));
         }
       }
     }on FirebaseAuthException catch(error){

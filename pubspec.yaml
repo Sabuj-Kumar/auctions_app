@@ -40,6 +40,9 @@ dependencies:
   cloud_firestore: ^4.4.3
   flutter_riverpod: ^2.2.0
   shared_preferences: ^2.0.18
+  image_picker: ^0.8.6+3
+  firebase_storage: ^11.0.14
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:

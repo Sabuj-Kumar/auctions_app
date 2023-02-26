@@ -7,7 +7,8 @@ class CustomInputField extends StatefulWidget {
   final bool inputAction;
   final String? Function(String?)? validate;
   final bool suffixIcon;
-  const CustomInputField({Key? key, required this.controller,this.inputAction = false, this.validate,this.suffixIcon = false}) : super(key: key);
+  final TextInputType keyboardType;
+  const CustomInputField({Key? key, required this.controller,this.inputAction = false, this.validate,this.suffixIcon = false,this.keyboardType = TextInputType.text}) : super(key: key);
 
   @override
   State<CustomInputField> createState() => _CustomInputFieldState();
@@ -27,6 +28,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
       controller: widget.controller,
       cursorColor: purpleColor,
       textInputAction: widget.inputAction?TextInputAction.done:TextInputAction.next,
+      keyboardType: widget.keyboardType,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
